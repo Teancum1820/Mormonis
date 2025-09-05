@@ -283,6 +283,10 @@
         .seminary-manual { 
             background: linear-gradient(145deg, #40a444, #2d7a30);
         }
+
+        .student-manual {
+            background: linear-gradient(145deg, #6d4c41, #4e342e);
+        }
         
         .study-section {
             margin-top: 32px;
@@ -358,7 +362,6 @@
 </head>
 <body>
     <div class="main-container">
-        <!-- Selector Page -->
         <div class="selector-page" id="selector-page">
             <header>
                 <h1 class="main-title">Lectio Divina Mormonis</h1>
@@ -390,7 +393,6 @@
             </footer>
         </div>
 
-        <!-- Lectio Study Page -->
         <div class="lectio-page" id="lectio-page">
             <nav class="nav-bar">
                 <button class="back-button" onclick="backToSelector()">
@@ -404,8 +406,7 @@
             </header>
 
             <div class="resources-container" id="resources-container">
-                <!-- Resource categories will be populated by JavaScript -->
-            </div>
+                </div>
 
             <div class="study-section">
                 <h3>4 Steps of Lectio Divina</h3>
@@ -502,6 +503,64 @@
             { range: [{ slug: "moro", chapters: [7,8,10] }], page: 364 }
         ];
 
+        const studentManualMappings = [
+            { range: [{ slug: "1-ne", chapters: [1, 2, 3, 4, 5] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-2-1-nephi-1-5?lang=eng" },
+            { range: [{ slug: "1-ne", chapters: [6, 7, 8, 9, 10, 11] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-3-1-nephi-6-11?lang=eng" },
+            { range: [{ slug: "1-ne", chapters: [12, 13, 14, 15] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-4-1-nephi-12-15?lang=eng" },
+            { range: [{ slug: "1-ne", chapters: [16, 17, 18] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-5-1-nephi-16-18?lang=eng" },
+            { range: [{ slug: "1-ne", chapters: [19, 20, 21, 22] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-6-1-nephi-19-22?lang=eng" },
+            { range: [{ slug: "2-ne", chapters: [1, 2, 3] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-7-2-nephi-1-3?lang=eng" },
+            { range: [{ slug: "2-ne", chapters: [4, 5, 6, 7, 8] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-8-2-nephi-4-8?lang=eng" },
+            { range: [{ slug: "2-ne", chapters: [9, 10] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-9-2-nephi-9-10?lang=eng" },
+            { range: [{ slug: "2-ne", chapters: [11, 12, 13, 14, 15, 16] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-10-2-nephi-11-16?lang=eng" },
+            { range: [{ slug: "2-ne", chapters: [17, 18, 19, 20, 21, 22, 23, 24] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-11-2-nephi-17-24?lang=eng" },
+            { range: [{ slug: "2-ne", chapters: [25, 26, 27] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-12-2-nephi-25-27?lang=eng" },
+            { range: [{ slug: "2-ne", chapters: [28, 29, 30] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-13-2-nephi-28-30?lang=eng" },
+            { range: [{ slug: "2-ne", chapters: [31, 32, 33] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-14-2-nephi-31-33?lang=eng" },
+            { range: [{ slug: "jacob", chapters: [1, 2, 3, 4] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-15-jacob-1-4?lang=eng" },
+            { range: [{ slug: "jacob", chapters: [5, 6, 7] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-16-jacob-5-7?lang=eng" },
+            { range: [{ slug: "enos", chapters: [1] }, { slug: "jarom", chapters: [1] }, { slug: "omni", chapters: [1] }, { slug: "w-of-m", chapters: [1] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-17-enos-words-of-mormon?lang=eng" },
+            { range: [{ slug: "mosiah", chapters: [1, 2, 3] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-18-mosiah-1-3?lang=eng" },
+            { range: [{ slug: "mosiah", chapters: [4, 5, 6, 7, 8] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-19-mosiah-4-8?lang=eng" },
+            { range: [{ slug: "mosiah", chapters: [9, 10, 11, 12, 13, 14, 15, 16, 17] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-20-mosiah-9-17?lang=eng" },
+            { range: [{ slug: "mosiah", chapters: [18, 19, 20, 21, 22, 23, 24] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-21-mosiah-18-24?lang=eng" },
+            { range: [{ slug: "mosiah", chapters: [25, 26, 27, 28, 29] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-22-mosiah-25-29?lang=eng" },
+            { range: [{ slug: "alma", chapters: [1, 2, 3, 4] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-23-alma-1-4?lang=eng" },
+            { range: [{ slug: "alma", chapters: [5, 6, 7] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-24-alma-5-7?lang=eng" },
+            { range: [{ slug: "alma", chapters: [8, 9, 10, 11, 12] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-25-alma-8-12?lang=eng" },
+            { range: [{ slug: "alma", chapters: [13, 14, 15, 16] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-26-alma-13-16?lang=eng" },
+            { range: [{ slug: "alma", chapters: [17, 18, 19, 20, 21, 22] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-27-alma-17-22?lang=eng" },
+            { range: [{ slug: "alma", chapters: [23, 24, 25, 26, 27, 28, 29] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-28-alma-23-29?lang=eng" },
+            { range: [{ slug: "alma", chapters: [30, 31] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-29-alma-30-31?lang=eng" },
+            { range: [{ slug: "alma", chapters: [32, 33, 34, 35] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-30-alma-32-35?lang=eng" },
+            { range: [{ slug: "alma", chapters: [36, 37, 38, 39] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-31-alma-36-39?lang=eng" },
+            { range: [{ slug: "alma", chapters: [40, 41, 42] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-32-alma-40-42?lang=eng" },
+            { range: [{ slug: "alma", chapters: [43, 44, 45, 46, 47, 48, 49, 50, 51] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-33-alma-43-51?lang=eng" },
+            { range: [{ slug: "alma", chapters: [52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-34-alma-52-63?lang=eng" },
+            { range: [{ slug: "hel", chapters: [1, 2, 3, 4] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-35-helaman-1-4?lang=eng" },
+            { range: [{ slug: "hel", chapters: [5, 6, 7, 8, 9] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-36-helaman-5-9?lang=eng" },
+            { range: [{ slug: "hel", chapters: [10, 11, 12] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-37-helaman-10-12?lang=eng" },
+            { range: [{ slug: "hel", chapters: [13, 14, 15, 16] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-38-helaman-13-16?lang=eng" },
+            { range: [{ slug: "3-ne", chapters: [1, 2, 3, 4, 5, 6, 7] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-39-3-nephi-1-7?lang=eng" },
+            { range: [{ slug: "3-ne", chapters: [8, 9, 10, 11] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-40-3-nephi-8-11?lang=eng" },
+            { range: [{ slug: "3-ne", chapters: [12, 13, 14] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-41-3-nephi-12-14?lang=eng" },
+            { range: [{ slug: "3-ne", chapters: [15, 16, 17] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-42-3-nephi-15-17?lang=eng" },
+            { range: [{ slug: "3-ne", chapters: [18, 19] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-43-3-nephi-18-19?lang=eng" },
+            { range: [{ slug: "3-ne", chapters: [20, 21, 22] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-44-3-nephi-20-22?lang=eng" },
+            { range: [{ slug: "3-ne", chapters: [23, 24, 25, 26] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-45-3-nephi-23-26?lang=eng" },
+            { range: [{ slug: "3-ne", chapters: [27, 28, 29, 30] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-46-3-nephi-27-30?lang=eng" },
+            { range: [{ slug: "4-ne", chapters: [1] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-47-4-nephi?lang=eng" },
+            { range: [{ slug: "morm", chapters: [1, 2, 3, 4, 5, 6] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-48-mormon-1-6?lang=eng" },
+            { range: [{ slug: "morm", chapters: [7, 8, 9] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-49-mormon-7-9?lang=eng" },
+            { range: [{ slug: "ether", chapters: [1, 2, 3, 4, 5] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-50-ether-1-5?lang=eng" },
+            { range: [{ slug: "ether", chapters: [6, 7, 8, 9, 10] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-51-ether-6-10?lang=eng" },
+            { range: [{ slug: "ether", chapters: [11, 12, 13, 14, 15] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-52-ether-11-15?lang=eng" },
+            { range: [{ slug: "moro", chapters: [1, 2, 3, 4, 5, 6] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-53-moroni-1-6?lang=eng" },
+            { range: [{ slug: "moro", chapters: [7] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-54-moroni-7?lang=eng" },
+            { range: [{ slug: "moro", chapters: [8, 9] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-55-moroni-8-9?lang=eng" },
+            { range: [{ slug: "moro", chapters: [10] }], url: "https://www.churchofjesuschrist.org/study/manual/book-of-mormon-student-manual/chapter-56-moroni-10?lang=eng" }
+        ];
+
         // DOM elements
         const selectorPage = document.getElementById('selector-page');
         const lectioPage = document.getElementById('lectio-page');
@@ -577,6 +636,17 @@
             ];
 
             for (const mapping of seminaryMappings) {
+                for (const entry of mapping.range) {
+                    if (entry.slug === slug && entry.chapters.includes(chapter)) {
+                        return mapping.url;
+                    }
+                }
+            }
+            return null;
+        }
+
+        function findStudentManualUrl(slug, chapter) {
+            for (const mapping of studentManualMappings) {
                 for (const entry of mapping.range) {
                     if (entry.slug === slug && entry.chapters.includes(chapter)) {
                         return mapping.url;
@@ -701,6 +771,7 @@
             const lessonPage = findLessonPage(route.slug, route.chapter);
             const harderUrl = lessonPage ? `https://scholarsarchive.byu.edu/cgi/viewcontent.cgi?article=1015&context=mi#page=${lessonPage}` : null;
             const seminaryManualUrl = findSeminaryManualUrl(route.slug, route.chapter);
+            const studentManualUrl = findStudentManualUrl(route.slug, route.chapter);
 
             // Create resource categories
             const translationsButtons = [
@@ -715,6 +786,9 @@
             }
             if (seminaryManualUrl) {
                 studyButtons.push(createButton('Book of Mormon Seminary Student Manual (2024)', seminaryManualUrl, 'seminary-manual'));
+            }
+            if (studentManualUrl) {
+                studyButtons.push(createButton('Book of Mormon Student Manual', studentManualUrl, 'student-manual'));
             }
             if (studyButtons.length > 0) {
                 resourcesContainer.appendChild(createResourceCategory('Study Questions', studyButtons));
