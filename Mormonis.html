@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lectio Divina Mormonis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,9 +22,11 @@
             align-items: center;
             justify-content: center;
             padding: 24px;
+            transition: background 0.3s ease;
         }
         
         .main-container {
+            position: relative; /* For dark mode toggle positioning */
             width: 100%;
             max-width: 768px;
             background: linear-gradient(145deg, #f5f1e8 0%, #e8dcc6 100%);
@@ -29,6 +34,7 @@
             border-radius: 8px;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
             padding: 32px 40px;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
         
         .selector-page {
@@ -356,6 +362,31 @@
             line-height: 1.6;
             font-style: italic;
         }
+
+        .dark-mode-toggle {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #f5f1e8;
+            border: 2px solid #8b7355;
+            color: #8b7355;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background: #8b7355;
+            color: #f5f1e8;
+            transform: scale(1.1);
+        }
         
         @media (max-width: 640px) {
             .main-container {
@@ -378,10 +409,202 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Dark Mode Styles (Celestial Knight) */
+        body.dark-mode {
+            font-family: 'Inter', sans-serif;
+            background: #0F0C29;
+            background: -webkit-linear-gradient(to right, #24243E, #302B63, #0F0C29);
+            background: linear-gradient(to right, #24243E, #302B63, #0F0C29);
+        }
+
+        body.dark-mode .main-container {
+            background: rgba(20, 16, 50, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        body.dark-mode .main-title {
+            font-weight: 700;
+            color: #FFFFFF;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            font-variant: normal;
+        }
+
+        body.dark-mode .main-title::after {
+            width: 150px;
+            background: linear-gradient(to right, transparent, #00FFFF, transparent);
+        }
+
+        body.dark-mode .subtitle {
+            color: #c0c0e0;
+            font-weight: 300;
+        }
+
+        body.dark-mode .form-label {
+            color: #d0d0f0;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-variant: normal;
+        }
+
+        body.dark-mode .form-select {
+            border-radius: 6px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            background: rgba(30, 25, 70, 0.8);
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2300FFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 14px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+        }
+
+        body.dark-mode .start-button {
+            background: linear-gradient(145deg, #00FFFF, #008B8B);
+            color: #0F0C29;
+            border: none;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+        }
+        body.dark-mode .start-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+            background: linear-gradient(145deg, #00FFFF, #008B8B);
+        }
+
+        body.dark-mode .help-text {
+            color: #a0a0c0;
+        }
+
+        body.dark-mode .footer {
+            color: #9090b0;
+        }
+
+        body.dark-mode .footer a {
+            color: #00FFFF;
+        }
+
+        body.dark-mode .disclaimer {
+            color: #707090;
+        }
+
+        body.dark-mode .back-button {
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            background: rgba(30, 25, 70, 0.8);
+            font-family: 'Inter', sans-serif;
+            box-shadow: none;
+        }
+        body.dark-mode .back-button:hover {
+            background: rgba(50, 45, 90, 1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(0);
+        }
+
+        body.dark-mode .lectio-header h2 {
+            font-weight: 600;
+            color: #FFFFFF;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+            font-variant: normal;
+        }
+
+        body.dark-mode .lectio-header p {
+            color: #c0c0e0;
+        }
+
+        body.dark-mode .method-text {
+            font-weight: 600;
+            color: #FFD700;
+        }
+
+        body.dark-mode .resource-category {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .category-title {
+            font-weight: 600;
+            color: #FFFFFF;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+            font-variant: normal;
+        }
+        body.dark-mode .resource-button {
+            font-family: 'Inter', sans-serif;
+            border: none;
+        }
+        body.dark-mode .resource-button:hover {
+            transform: scale(1.05);
+        }
+
+        body.dark-mode .gospel-library { background: #007bff; }
+        body.dark-mode .book-harder   { background: #6f42c1; }
+        body.dark-mode .book-online   { background: #17a2b8; }
+        body.dark-mode .mynoise       { background: #fd7e14; }
+        body.dark-mode .chatgpt       { background: #28a745; }
+        body.dark-mode .ldsbot { background: #5b21b6; }
+        body.dark-mode .learning-to-love { background: #dc3545; }
+        body.dark-mode .seminary-manual { background: #ffc107; color: #212529; }
+        body.dark-mode .student-manual { background: #6d4c41; }
+        body.dark-mode .book-of-mormon-central { background: #004aad; }
+        body.dark-mode .scripture-citation-index { background: #a52a2a; }
+        body.dark-mode .tabernacle-choir { background: #DAA520; }
+        body.dark-mode .come-follow-me-manual { background: #003366; }
+
+        body.dark-mode .study-section {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        body.dark-mode .study-section h3 {
+            color: #FFFFFF;
+            font-weight: 600;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            font-variant: normal;
+        }
+
+        body.dark-mode .lectio-step {
+            background: rgba(15, 12, 41, 0.7);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: none;
+        }
+
+        body.dark-mode .lectio-step h4 {
+            color: #00FFFF;
+            font-weight: 600;
+            font-variant: normal;
+        }
+
+        body.dark-mode .lectio-step p {
+            color: #d0d0f0;
+            font-weight: 300;
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            background: rgba(30, 25, 70, 0.8);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: #FFFFFF;
+        }
+        body.dark-mode .dark-mode-toggle:hover {
+            background: rgba(50, 45, 90, 1);
+            color: #FFFFFF;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
     <div class="main-container">
+        <button id="dark-mode-toggle" class="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
         <div class="selector-page" id="selector-page">
             <header>
                 <h1 class="main-title">Lectio Divina Mormonis</h1>
@@ -692,6 +915,23 @@
         const chapterSelect = document.getElementById('chapter-select');
         const lectioTitle = document.getElementById('lectio-title');
         const resourcesContainer = document.getElementById('resources-container');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        // --- Dark Mode Logic ---
+        function setDarkMode(isDark) {
+            if (isDark) {
+                body.classList.add('dark-mode');
+                darkModeToggle.textContent = '☀️';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                darkModeToggle.textContent = '🌙';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+        // --- End Dark Mode Logic ---
+
 
         // Utility functions
         function findLessonPage(slug, chapter) {
@@ -838,6 +1078,10 @@
 
         // Initialize app
         function init() {
+            // Check for saved dark mode preference on init
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                setDarkMode(true);
+            }
             populateBooks();
             setupEventListeners();
             handleRouting();
@@ -856,6 +1100,10 @@
         function setupEventListeners() {
             bookSelect.addEventListener('change', handleBookChange);
             window.addEventListener('hashchange', handleRouting);
+            darkModeToggle.addEventListener('click', () => {
+                const isDarkMode = body.classList.contains('dark-mode');
+                setDarkMode(!isDarkMode);
+            });
         }
 
         function handleBookChange() {
@@ -975,5 +1223,3 @@
     </script>
 </body>
 </html>
-
-
