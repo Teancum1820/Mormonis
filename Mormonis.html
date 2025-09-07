@@ -350,6 +350,56 @@
              background: linear-gradient(145deg, #A0522D, #800000);
         }
 
+        .master-class {
+             background: linear-gradient(145deg, #FF6347, #DC143C);
+        }
+
+        .bom-evidence {
+            background: linear-gradient(145deg, #8B0000, #5B0000);
+        }
+
+        .bom-art-catalog {
+            background: linear-gradient(145deg, #4B0082, #8A2BE2);
+        }
+
+        .for-our-day {
+            background: linear-gradient(145deg, #0A3D62, #072C47);
+        }
+        .teachings-bom {
+            background: linear-gradient(145deg, #002255, #00112B);
+        }
+        .teachings-bom-2 {
+            background: linear-gradient(145deg, #002a69, #001636);
+        }
+        .teachings-bom-3 {
+            background: linear-gradient(145deg, #00337d, #001b41);
+        }
+        .teachings-bom-4 {
+            background: linear-gradient(145deg, #003c91, #00214c);
+        }
+        .fair-answers {
+            background: linear-gradient(145deg, #16a085, #117a65);
+        }
+        .lehi-in-desert {
+            background: linear-gradient(145deg, #F4A460, #D2691E);
+        }
+        .approach-bom {
+            background: linear-gradient(145deg, #000080, #000033);
+        }
+        .since-cumorah {
+            background: linear-gradient(145deg, #556B2F, #2E401A);
+        }
+        .prophetic-bom {
+            background: linear-gradient(145deg, #800080, #4B0082);
+        }
+        .byu-speeches {
+            background: linear-gradient(145deg, #002244, #001122);
+        }
+        .general-conference {
+            background: linear-gradient(145deg, #333333, #111111);
+        }
+
+
         .study-section {
             margin-top: 32px;
             background: linear-gradient(145deg, rgba(139, 115, 85, 0.15), rgba(93, 78, 55, 0.1));
@@ -602,6 +652,22 @@
         body.dark-mode .generate-questions-ai { background: #1d4ed8; }
         body.dark-mode .museum-of-bom { background: #A0522D; }
         body.dark-mode .book-of-mormon-videos { background: #c53030; }
+        body.dark-mode .master-class { background: #E9967A; }
+        body.dark-mode .bom-evidence { background: #9b59b6; }
+        body.dark-mode .bom-art-catalog { background: #9932CC; }
+        body.dark-mode .for-our-day { background: #2980b9; }
+        body.dark-mode .teachings-bom { background: #005A9E; }
+        body.dark-mode .teachings-bom-2 { background: #006AB1; }
+        body.dark-mode .teachings-bom-3 { background: #007BC9; }
+        body.dark-mode .teachings-bom-4 { background: #008AE1; }
+        body.dark-mode .fair-answers { background: #1abc9c; }
+        body.dark-mode .lehi-in-desert { background: #CD853F; }
+        body.dark-mode .approach-bom { background: #4169E1; }
+        body.dark-mode .since-cumorah { background: #6B8E23; }
+        body.dark-mode .prophetic-bom { background: #9370DB; }
+        body.dark-mode .byu-speeches { background: #003366; }
+        body.dark-mode .general-conference { background: #555555; }
+
 
         body.dark-mode .study-section {
             background: rgba(0, 0, 0, 0.25);
@@ -1295,6 +1361,16 @@
             const bookOfMormonSimplifiedUrl = 'https://bookofmormonsimplified.com';
             const grandpaDaveUrl = 'https://grandpadave.com/BookOfMormon/Book_of_Mormon.aspx';
             const museumOfBomUrl = 'https://www.mobom.org/home';
+            const masterClassUrl = 'https://johnhiltoniii.com/thebookofmormon';
+            const forOurDayUrl = 'https://josephsmithfoundation.org/forourday';
+            const teachingsBomSem1Url = 'https://scholarsarchive.byu.edu/mi/70';
+            const teachingsBomSem2Url = 'https://scholarsarchive.byu.edu/mi/71';
+            const teachingsBomSem3Url = 'https://scholarsarchive.byu.edu/mi/72';
+            const teachingsBomSem4Url = 'https://scholarsarchive.byu.edu/mi/73';
+            const lehiInTheDesertUrl = 'https://scholarsarchive.byu.edu/mi/50/';
+            const approachBomUrl = 'https://scholarsarchive.byu.edu/mi/12/';
+            const sinceCumorahUrl = 'https://scholarsarchive.byu.edu/mi/75/';
+            const propheticBomUrl = 'https://scholarsarchive.byu.edu/mi/88/';
             const onlineUrl = `https://bookofmormon.online/read/${route.slug}.${route.chapter}`;
             const learningToLoveUrl = `https://clearldsdoctrine.neocities.org/ltltbom/${route.slug}/${route.chapter}`;
             const chatGptUrl = `https://chatgpt.com/?q=${encodeURIComponent(`Tell me more about ${book.name} ${route.chapter} in the Book of Mormon`)}`;
@@ -1309,6 +1385,11 @@
             const ldsBotUrl = 'https://ldsbot.com';
             const comeFollowMeManualUrl = findComeFollowMeManualUrl(route.slug, route.chapter);
             const bookOfMormonVideoUrl = findBookOfMormonVideoUrl(route.slug, route.chapter);
+            const bookOfMormonEvidenceUrl = 'https://bookofmormonevidence.org';
+            const bookOfMormonArtCatalogUrl = 'https://bookofmormonartcatalog.org';
+            const fairAnswersUrl = 'https://www.fairlatterdaysaints.org/answers/Book_of_Mormon';
+            const byuSpeechesUrl = 'https://speeches.byu.edu/topics/book-of-mormon';
+            const generalConferenceUrl = 'https://www.churchofjesuschrist.org/study/general-conference/topics/book-of-mormon?lang=eng';
 
             // Create and append resource categories
             const categories = [
@@ -1335,10 +1416,33 @@
                     createButton('Book of Mormon Online', onlineUrl, 'book-online'),
                     createButton('Learning to Love', learningToLoveUrl, 'learning-to-love'),
                     citationIndexUrl && createButton('Scripture Citation Index', citationIndexUrl, 'scripture-citation-index'),
-                    createButton('Museum of the Book of Mormon', museumOfBomUrl, 'museum-of-bom')
+                    createButton('Museum of the Book of Mormon', museumOfBomUrl, 'museum-of-bom'),
+                ]),
+                 createResourceCategory('Books', [
+                    createButton('Lehi in the Desert...', lehiInTheDesertUrl, 'lehi-in-desert'),
+                    createButton('An Approach to the Book of Mormon', approachBomUrl, 'approach-bom'),
+                    createButton('Since Cumorah', sinceCumorahUrl, 'since-cumorah'),
+                    createButton('The Prophetic Book of Mormon', propheticBomUrl, 'prophetic-bom')
+                ]),
+                createResourceCategory('Classes', [
+                    createButton('The Book of Mormon: A Master Class', masterClassUrl, 'master-class'),
+                    createButton('For Our Day', forOurDayUrl, 'for-our-day'),
+                    createButton('Teachings of the Book of Mormon, Semester 1', teachingsBomSem1Url, 'teachings-bom'),
+                    createButton('Teachings of the Book of Mormon, Semester 2', teachingsBomSem2Url, 'teachings-bom-2'),
+                    createButton('Teachings of the Book of Mormon, Semester 3', teachingsBomSem3Url, 'teachings-bom-3'),
+                    createButton('Teachings of the Book of Mormon, Semester 4', teachingsBomSem4Url, 'teachings-bom-4')
+                ]),
+                 createResourceCategory('Talks', [
+                    createButton('BYU Speeches', byuSpeechesUrl, 'byu-speeches'),
+                    createButton('General Conference', generalConferenceUrl, 'general-conference')
+                ]),
+                createResourceCategory('Apologetics', [
+                    createButton('Book of Mormon Evidence', bookOfMormonEvidenceUrl, 'bom-evidence'),
+                    createButton('FAIR Answers', fairAnswersUrl, 'fair-answers')
                 ]),
                 createResourceCategory('Entertainment', [
-                    createButton('Book of Mormon Videos', bookOfMormonVideoUrl, 'book-of-mormon-videos')
+                    createButton('Book of Mormon Videos', bookOfMormonVideoUrl, 'book-of-mormon-videos'),
+                    createButton('Book of Mormon Art Catalogue', bookOfMormonArtCatalogUrl, 'bom-art-catalog')
                 ]),
                 createResourceCategory('AI', [
                     createButton('Ask ChatGPT', chatGptUrl, 'chatgpt'),
