@@ -314,6 +314,42 @@
             background: linear-gradient(145deg, #003366, #001f3f);
         }
         
+        .covenant-of-christ {
+            background: linear-gradient(145deg, #c09551, #a07531);
+        }
+
+        .parallel-edition {
+            background: linear-gradient(145deg, #4682B4, #2E5984);
+        }
+
+        .plain-english-version {
+            background: linear-gradient(145deg, #6a5acd, #483d8b);
+        }
+
+        .gen-z-translate {
+            background: linear-gradient(145deg, #ec4899, #db2777);
+        }
+        
+        .book-of-mormon-simplified {
+             background: linear-gradient(145deg, #8FBC8F, #2E8B57);
+        }
+
+        .grandpa-dave {
+             background: linear-gradient(145deg, #B22222, #800000);
+        }
+
+        .generate-questions-ai {
+             background: linear-gradient(145deg, #3b82f6, #2563eb);
+        }
+        
+        .museum-of-bom {
+             background: linear-gradient(145deg, #D2B48C, #8B4513);
+        }
+        
+        .book-of-mormon-videos {
+             background: linear-gradient(145deg, #A0522D, #800000);
+        }
+
         .study-section {
             margin-top: 32px;
             background: linear-gradient(145deg, rgba(139, 115, 85, 0.15), rgba(93, 78, 55, 0.1));
@@ -557,6 +593,15 @@
         body.dark-mode .scripture-citation-index { background: #a52a2a; }
         body.dark-mode .tabernacle-choir { background: #DAA520; }
         body.dark-mode .come-follow-me-manual { background: #003366; }
+        body.dark-mode .covenant-of-christ { background: #c09551; }
+        body.dark-mode .parallel-edition { background: #4682B4; }
+        body.dark-mode .plain-english-version { background: #6a5acd; }
+        body.dark-mode .gen-z-translate { background: #be185d; }
+        body.dark-mode .book-of-mormon-simplified { background: #20B2AA; }
+        body.dark-mode .grandpa-dave { background: #B22222; }
+        body.dark-mode .generate-questions-ai { background: #1d4ed8; }
+        body.dark-mode .museum-of-bom { background: #A0522D; }
+        body.dark-mode .book-of-mormon-videos { background: #c53030; }
 
         body.dark-mode .study-section {
             background: rgba(0, 0, 0, 0.25);
@@ -694,6 +739,25 @@
             { name: "Ether", slug: "ether", chapters: 15 },
             { name: "Moroni", slug: "moro", chapters: 10 }
         ];
+
+        // Covenant of Christ Slug Mappings
+        const covenantOfChristSlugMappings = {
+            '1-ne': '1nephi',
+            '2-ne': '2nephi',
+            'jacob': 'jacob',
+            'enos': 'enos',
+            'jarom': 'jarom',
+            'omni': 'omni',
+            'w-of-m': 'wordsofmormon',
+            'mosiah': 'mosiah',
+            'alma': 'alma',
+            'hel': 'helaman',
+            '3-ne': '3nephi',
+            '4-ne': '4nephi',
+            'morm': 'mormon',
+            'ether': 'ether',
+            'moro': 'moroni'
+        };
 
         // Lesson to PDF page mapping
         const LESSON_PAGES = [
@@ -908,6 +972,53 @@
             { lesson: 51, range: [{ slug: "moro", chapters: [10] }] }
         ];
 
+        const bookOfMormonVideoMappings = [
+            { url: "https://www.churchofjesuschrist.org/media/collection/1-nephi-1-2?lang=eng", range: [{ slug: "1-ne", chapters: [1, 2] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/1-nephi-3-5?lang=eng", range: [{ slug: "1-ne", chapters: [3, 4, 5] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/1-nephi-7?lang=eng", range: [{ slug: "1-ne", chapters: [7] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/1-nephi-8?lang=eng", range: [{ slug: "1-ne", chapters: [8] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/1-nephi-10-15?lang=eng", range: [{ slug: "1-ne", chapters: [10, 11, 12, 13, 14, 15] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/1-nephi-16?lang=eng", range: [{ slug: "1-ne", chapters: [16] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/1-nephi-17-18?lang=eng", range: [{ slug: "1-ne", chapters: [17, 18] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/2-nephi-1-4?lang=eng", range: [{ slug: "2-ne", chapters: [1, 2, 3, 4] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/2-nephi-5?lang=eng", range: [{ slug: "2-ne", chapters: [5] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/2-nephi-6-10?lang=eng", range: [{ slug: "2-ne", chapters: [6, 7, 8, 9, 10] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/2-nephi-31-32?lang=eng", range: [{ slug: "2-ne", chapters: [31, 32] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/2-nephi-33?lang=eng", range: [{ slug: "2-ne", chapters: [33] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/jacob-2-3?lang=eng", range: [{ slug: "jacob", chapters: [2, 3] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/jacob-5?lang=eng", range: [{ slug: "jacob", chapters: [5] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/jacob-7?lang=eng", range: [{ slug: "jacob", chapters: [7] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/enos-1?lang=eng", range: [{ slug: "enos", chapters: [1] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/mosiah-1-5?lang=eng", range: [{ slug: "mosiah", chapters: [1, 2, 3, 4, 5] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/mosiah-11-18?lang=eng", range: [{ slug: "mosiah", chapters: [11, 12, 13, 14, 15, 16, 17, 18] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/mosiah-21-24?lang=eng", range: [{ slug: "mosiah", chapters: [21, 22, 23, 24] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/mosiah-27-alma-36?lang=eng", range: [{ slug: "mosiah", chapters: [27] }, { slug: "alma", chapters: [36] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/alma-4-7?lang=eng", range: [{ slug: "alma", chapters: [4, 5, 6, 7] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/alma-8-15?lang=eng", range: [{ slug: "alma", chapters: [8, 9, 10, 11, 12, 13, 14, 15] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/alma-17-19?lang=eng", range: [{ slug: "alma", chapters: [17, 18, 19] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/alma-23-27?lang=eng", range: [{ slug: "alma", chapters: [23, 24, 25, 26, 27] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/alma-31-34?lang=eng", range: [{ slug: "alma", chapters: [31, 32, 33, 34] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/alma-36-42?lang=eng", range: [{ slug: "alma", chapters: [36, 37, 38, 39, 40, 41, 42] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/alma-46?lang=eng", range: [{ slug: "alma", chapters: [46] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/alma-53-58?lang=eng", range: [{ slug: "alma", chapters: [53, 54, 55, 56, 57, 58] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/helaman-5?lang=eng", range: [{ slug: "hel", chapters: [5] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/helaman-13-16-3-nephi-1?lang=eng", range: [{ slug: "hel", chapters: [13, 14, 15, 16] }, {slug: "3-ne", chapters: [1]}] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/3-nephi-8-11?lang=eng", range: [{ slug: "3-ne", chapters: [8, 9, 10, 11] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/3-nephi-11-12?lang=eng", range: [{ slug: "3-ne", chapters: [11, 12] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/3-nephi-12-14?lang=eng", range: [{ slug: "3-ne", chapters: [12, 13, 14] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/3-nephi-15-16?lang=eng", range: [{ slug: "3-ne", chapters: [15, 16] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/3-nephi-17?lang=eng", range: [{ slug: "3-ne", chapters: [17] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/3-nephi-18?lang=eng", range: [{ slug: "3-ne", chapters: [18] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/3-nephi-19?lang=eng", range: [{ slug: "3-ne", chapters: [19] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/3-nephi-20-23?lang=eng", range: [{ slug: "3-ne", chapters: [20, 21, 22, 23] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/3-nephi-27?lang=eng", range: [{ slug: "3-ne", chapters: [27] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/mormon-1-7?lang=eng", range: [{ slug: "morm", chapters: [1, 2, 3, 4, 5, 6, 7] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/ether-1-6-12-13?lang=eng", range: [{ slug: "ether", chapters: [1, 2, 3, 4, 5, 6, 12, 13] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/mormon-8-9-moroni-1-10-title-page?lang=eng", range: [{ slug: "morm", chapters: [8, 9] }, { slug: "moro", chapters: [1, 10] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/moroni-7?lang=eng", range: [{ slug: "moro", chapters: [7] }] },
+            { url: "https://www.churchofjesuschrist.org/media/collection/moroni-8?lang=eng", range: [{ slug: "moro", chapters: [8] }] }
+        ];
+
         // DOM elements
         const selectorPage = document.getElementById('selector-page');
         const lectioPage = document.getElementById('lectio-page');
@@ -1043,6 +1154,18 @@
             return null;
         }
 
+        function findBookOfMormonVideoUrl(slug, chapter) {
+            const defaultUrl = "https://www.churchofjesuschrist.org/media/collection/book-of-mormon-videos?lang=eng";
+            for (const mapping of bookOfMormonVideoMappings) {
+                for (const entry of mapping.range) {
+                    if (entry.slug === slug && entry.chapters.includes(chapter)) {
+                        return mapping.url;
+                    }
+                }
+            }
+            return defaultUrl;
+        }
+
         function createResourceCategory(title, buttons) {
             if (buttons.filter(Boolean).length === 0) return null;
             
@@ -1164,9 +1287,18 @@
 
             // Build URLs
             const glUrl = `https://www.churchofjesuschrist.org/study/scriptures/bofm/${route.slug}/${route.chapter}?lang=eng`;
+            const covenantSlug = covenantOfChristSlugMappings[route.slug];
+            const covenantOfChristUrl = covenantSlug ? `https://scriptures.info/scriptures/cc/${covenantSlug}/${route.chapter}` : null;
+            const parallelEditionUrl = 'https://bencrowder.net/book-of-mormon-parallel-edition';
+            const plainEnglishVersionUrl = 'https://en.wikisource.org/wiki/Book_of_Mormon_(Plain_English_Version)';
+            const genZTranslateUrl = `https://chatgpt.com/?q=${encodeURIComponent(`Translate the following chapter verse by verse into Gen Z. Keep the versing. Do not change any words spoken by Deity, Keep those sacred. Have the original verses in a column next to the translation. Translate all verses in the chapter. ${book.name} ${route.chapter}`)}`;
+            const bookOfMormonSimplifiedUrl = 'https://bookofmormonsimplified.com';
+            const grandpaDaveUrl = 'https://grandpadave.com/BookOfMormon/Book_of_Mormon.aspx';
+            const museumOfBomUrl = 'https://www.mobom.org/home';
             const onlineUrl = `https://bookofmormon.online/read/${route.slug}.${route.chapter}`;
             const learningToLoveUrl = `https://clearldsdoctrine.neocities.org/ltltbom/${route.slug}/${route.chapter}`;
             const chatGptUrl = `https://chatgpt.com/?q=${encodeURIComponent(`Tell me more about ${book.name} ${route.chapter} in the Book of Mormon`)}`;
+            const generateQuestionsAiUrl = `https://chatgpt.com/?q=${encodeURIComponent(`Give me some Deep study questions for this chapter in the Book of Mormon ${book.name} ${route.chapter}`)}`;
             const lessonPage = findLessonPage(route.slug, route.chapter);
             const harderUrl = lessonPage ? `https://scholarsarchive.byu.edu/cgi/viewcontent.cgi?article=1015&context=mi#page=${lessonPage}` : null;
             const seminaryManualUrl = findSeminaryManualUrl(route.slug, route.chapter);
@@ -1176,11 +1308,18 @@
             const tabernacleChoirUrl = 'https://www.churchofjesuschrist.org/media/radio/tabernacle-choir-stream?lang=eng';
             const ldsBotUrl = 'https://ldsbot.com';
             const comeFollowMeManualUrl = findComeFollowMeManualUrl(route.slug, route.chapter);
+            const bookOfMormonVideoUrl = findBookOfMormonVideoUrl(route.slug, route.chapter);
 
             // Create and append resource categories
             const categories = [
                 createResourceCategory('Translations', [
-                    createButton('Open in Gospel Library', glUrl, 'gospel-library')
+                    createButton('Open in Gospel Library', glUrl, 'gospel-library'),
+                    covenantOfChristUrl && createButton('COVENANT OF CHRIST', covenantOfChristUrl, 'covenant-of-christ'),
+                    createButton('Parallel Edition', parallelEditionUrl, 'parallel-edition'),
+                    createButton('Plain English Version', plainEnglishVersionUrl, 'plain-english-version'),
+                    createButton('Book of Mormon Simplified', bookOfMormonSimplifiedUrl, 'book-of-mormon-simplified'),
+                    createButton("Grandpa Dave's Red-Letter Edition", grandpaDaveUrl, 'grandpa-dave'),
+                    createButton('Translate Chapter into Gen Z (AI)', genZTranslateUrl, 'gen-z-translate')
                 ]),
                 createResourceCategory('Come Follow Me', [
                     comeFollowMeManualUrl && createButton('Come, Follow Me—For Home and Church', comeFollowMeManualUrl, 'come-follow-me-manual'),
@@ -1189,12 +1328,17 @@
                 createResourceCategory('Study Questions', [
                     harderUrl && createButton('Book of Mormon Made Harder', harderUrl, 'book-harder'),
                     seminaryManualUrl && createButton('Book of Mormon Seminary Student Manual (2024)', seminaryManualUrl, 'seminary-manual'),
-                    studentManualUrl && createButton('Book of Mormon Student Manual', studentManualUrl, 'student-manual')
+                    studentManualUrl && createButton('Book of Mormon Student Manual', studentManualUrl, 'student-manual'),
+                    createButton('Generate Deep Study Questions (AI)', generateQuestionsAiUrl, 'generate-questions-ai')
                 ]),
                 createResourceCategory('Incredible Tools', [
                     createButton('Book of Mormon Online', onlineUrl, 'book-online'),
                     createButton('Learning to Love', learningToLoveUrl, 'learning-to-love'),
-                    citationIndexUrl && createButton('Scripture Citation Index', citationIndexUrl, 'scripture-citation-index')
+                    citationIndexUrl && createButton('Scripture Citation Index', citationIndexUrl, 'scripture-citation-index'),
+                    createButton('Museum of the Book of Mormon', museumOfBomUrl, 'museum-of-bom')
+                ]),
+                createResourceCategory('Entertainment', [
+                    createButton('Book of Mormon Videos', bookOfMormonVideoUrl, 'book-of-mormon-videos')
                 ]),
                 createResourceCategory('AI', [
                     createButton('Ask ChatGPT', chatGptUrl, 'chatgpt'),
@@ -1223,3 +1367,4 @@
     </script>
 </body>
 </html>
+
