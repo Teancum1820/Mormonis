@@ -295,6 +295,18 @@
         .scripture-citation-index {
              background: linear-gradient(145deg, #a52a2a, #800000);
         }
+
+        .tabernacle-choir {
+             background: linear-gradient(145deg, #b8860b, #8b4513);
+        }
+        
+        .ldsbot {
+             background: linear-gradient(145deg, #5b21b6, #4c1d95);
+        }
+        
+        .come-follow-me-manual {
+            background: linear-gradient(145deg, #003366, #001f3f);
+        }
         
         .study-section {
             margin-top: 32px;
@@ -621,6 +633,58 @@
             { range: [{ slug: "moro", chapters: [10] }], url: "https://scripturecentral.org/come-follow-me/book-of-mormon-2024/moroni-10?pId=36&sId=150" }
         ];
 
+        const comeFollowMeManualMappings = [
+            { lesson: 2, range: [{ slug: "1-ne", chapters: [1, 2, 3, 4, 5] }] },
+            { lesson: 3, range: [{ slug: "1-ne", chapters: [6, 7, 8, 9, 10] }] },
+            { lesson: 4, range: [{ slug: "1-ne", chapters: [11, 12, 13, 14, 15] }] },
+            { lesson: 5, range: [{ slug: "1-ne", chapters: [16, 17, 18, 19, 20, 21, 22] }] },
+            { lesson: 6, range: [{ slug: "2-ne", chapters: [1, 2] }] },
+            { lesson: 7, range: [{ slug: "2-ne", chapters: [3, 4, 5] }] },
+            { lesson: 8, range: [{ slug: "2-ne", chapters: [6, 7, 8, 9, 10] }] },
+            { lesson: 9, range: [{ slug: "2-ne", chapters: [11, 12, 13, 14, 15, 16, 17, 18, 19] }] },
+            { lesson: 10, range: [{ slug: "2-ne", chapters: [20, 21, 22, 23, 24, 25] }] },
+            { lesson: 11, range: [{ slug: "2-ne", chapters: [26, 27, 28, 29, 30] }] },
+            { lesson: 12, range: [{ slug: "2-ne", chapters: [31, 32, 33] }] },
+            { lesson: 14, range: [{ slug: "jacob", chapters: [1, 2, 3, 4] }] },
+            { lesson: 15, range: [{ slug: "jacob", chapters: [5, 6, 7] }] },
+            { lesson: 16, range: [{ slug: "enos", chapters: [1] }, { slug: "jarom", chapters: [1] }, { slug: "omni", chapters: [1] }, { slug: "w-of-m", chapters: [1] }] },
+            { lesson: 17, range: [{ slug: "mosiah", chapters: [1, 2, 3] }] },
+            { lesson: 18, range: [{ slug: "mosiah", chapters: [4, 5, 6] }] },
+            { lesson: 19, range: [{ slug: "mosiah", chapters: [7, 8, 9, 10] }] },
+            { lesson: 20, range: [{ slug: "mosiah", chapters: [11, 12, 13, 14, 15, 16, 17] }] },
+            { lesson: 21, range: [{ slug: "mosiah", chapters: [18, 19, 20, 21, 22, 23, 24] }] },
+            { lesson: 22, range: [{ slug: "mosiah", chapters: [25, 26, 27, 28] }] },
+            { lesson: 23, range: [{ slug: "mosiah", chapters: [29] }, { slug: "alma", chapters: [1, 2, 3, 4] }] },
+            { lesson: 24, range: [{ slug: "alma", chapters: [5, 6, 7] }] },
+            { lesson: 25, range: [{ slug: "alma", chapters: [8, 9, 10, 11, 12] }] },
+            { lesson: 26, range: [{ slug: "alma", chapters: [13, 14, 15, 16] }] },
+            { lesson: 27, range: [{ slug: "alma", chapters: [17, 18, 19, 20, 21, 22] }] },
+            { lesson: 28, range: [{ slug: "alma", chapters: [23, 24, 25, 26, 27, 28, 29] }] },
+            { lesson: 29, range: [{ slug: "alma", chapters: [30, 31] }] },
+            { lesson: 30, range: [{ slug: "alma", chapters: [32, 33, 34, 35] }] },
+            { lesson: 31, range: [{ slug: "alma", chapters: [36, 37, 38] }] },
+            { lesson: 32, range: [{ slug: "alma", chapters: [39, 40, 41, 42] }] },
+            { lesson: 33, range: [{ slug: "alma", chapters: [43, 44, 45, 46, 47, 48, 49, 50, 51, 52] }] },
+            { lesson: 34, range: [{ slug: "alma", chapters: [53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63] }] },
+            { lesson: 35, range: [{ slug: "hel", chapters: [1, 2, 3, 4, 5, 6] }] },
+            { lesson: 36, range: [{ slug: "hel", chapters: [7, 8, 9, 10, 11, 12] }] },
+            { lesson: 37, range: [{ slug: "hel", chapters: [13, 14, 15, 16] }] },
+            { lesson: 38, range: [{ slug: "3-ne", chapters: [1, 2, 3, 4, 5, 6, 7] }] },
+            { lesson: 39, range: [{ slug: "3-ne", chapters: [8, 9, 10, 11] }] },
+            { lesson: 40, range: [{ slug: "3-ne", chapters: [12, 13, 14, 15, 16] }] },
+            { lesson: 41, range: [{ slug: "3-ne", chapters: [17, 18, 19] }] },
+            { lesson: 42, range: [{ slug: "3-ne", chapters: [20, 21, 22, 23, 24, 25, 26] }] },
+            { lesson: 43, range: [{ slug: "3-ne", chapters: [27, 28, 29, 30] }, { slug: "4-ne", chapters: [1] }] },
+            { lesson: 44, range: [{ slug: "morm", chapters: [1, 2, 3, 4, 5, 6] }] },
+            { lesson: 45, range: [{ slug: "morm", chapters: [7, 8, 9] }] },
+            { lesson: 46, range: [{ slug: "ether", chapters: [1, 2, 3, 4, 5] }] },
+            { lesson: 47, range: [{ slug: "ether", chapters: [6, 7, 8, 9, 10, 11] }] },
+            { lesson: 48, range: [{ slug: "ether", chapters: [12, 13, 14, 15] }] },
+            { lesson: 49, range: [{ slug: "moro", chapters: [1, 2, 3, 4, 5, 6] }] },
+            { lesson: 50, range: [{ slug: "moro", chapters: [7, 8, 9] }] },
+            { lesson: 51, range: [{ slug: "moro", chapters: [10] }] }
+        ];
+
         // DOM elements
         const selectorPage = document.getElementById('selector-page');
         const lectioPage = document.getElementById('lectio-page');
@@ -721,6 +785,18 @@
                 for (const entry of mapping.range) {
                     if (entry.slug === slug && entry.chapters.includes(chapter)) {
                         return mapping.url;
+                    }
+                }
+            }
+            return null;
+        }
+        
+        function findComeFollowMeManualUrl(slug, chapter) {
+            for (const mapping of comeFollowMeManualMappings) {
+                for (const entry of mapping.range) {
+                    if (entry.slug === slug && entry.chapters.includes(chapter)) {
+                        const lessonNumber = String(mapping.lesson).padStart(2, '0');
+                        return `https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-book-of-mormon-2024/${lessonNumber}?lang=eng`;
                     }
                 }
             }
@@ -849,6 +925,9 @@
             const studentManualUrl = findStudentManualUrl(route.slug, route.chapter);
             const bookOfMormonCentralUrl = findBookOfMormonCentralUrl(route.slug, route.chapter);
             const citationIndexUrl = 'https://scriptures.byu.edu/#::c';
+            const tabernacleChoirUrl = 'https://www.churchofjesuschrist.org/media/radio/tabernacle-choir-stream?lang=eng';
+            const ldsBotUrl = 'https://ldsbot.com';
+            const comeFollowMeManualUrl = findComeFollowMeManualUrl(route.slug, route.chapter);
 
             // Create and append resource categories
             const categories = [
@@ -856,6 +935,7 @@
                     createButton('Open in Gospel Library', glUrl, 'gospel-library')
                 ]),
                 createResourceCategory('Come Follow Me', [
+                    comeFollowMeManualUrl && createButton('Come, Follow Me—For Home and Church', comeFollowMeManualUrl, 'come-follow-me-manual'),
                     bookOfMormonCentralUrl && createButton('Book of Mormon Central', bookOfMormonCentralUrl, 'book-of-mormon-central')
                 ]),
                 createResourceCategory('Study Questions', [
@@ -869,10 +949,12 @@
                     citationIndexUrl && createButton('Scripture Citation Index', citationIndexUrl, 'scripture-citation-index')
                 ]),
                 createResourceCategory('AI', [
-                    createButton('Ask ChatGPT', chatGptUrl, 'chatgpt')
+                    createButton('Ask ChatGPT', chatGptUrl, 'chatgpt'),
+                    createButton('LDSBot', ldsBotUrl, 'ldsbot')
                 ]),
                 createResourceCategory('Ambience', [
-                    createButton('myNoise®', 'https://mynoise.net/noiseMachines.php', 'mynoise')
+                    createButton('myNoise®', 'https://mynoise.net/noiseMachines.php', 'mynoise'),
+                    createButton('Tabernacle Choir Stream', tabernacleChoirUrl, 'tabernacle-choir')
                 ])
             ];
 
@@ -893,4 +975,5 @@
     </script>
 </body>
 </html>
+
 
